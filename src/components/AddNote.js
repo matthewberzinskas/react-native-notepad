@@ -8,8 +8,12 @@ export const AddNote = () => {
   const dispatch = useDispatch();
 
   function handleSumbit() {
-    dispatch(addNote(text));
-    setText("");
+    if (text) {
+      dispatch(addNote(text));
+      setText("");
+    } else {
+      alert("Cannot add an empty note.");
+    }
   }
 
   return (
