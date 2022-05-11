@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text, Dimensions, StatusBar } from "react-native";
-import { NoteList } from "./components/NoteList";
-import { AddNote } from "./components/AddNote";
+import { NoteList } from "../components/NoteList";
+import { AddNote } from "../components/AddNote";
 
-export const NoteApp = () => {
+export default function HomeScreen({ navigation }) {
+  //console.log(navigation);
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.box1]}>
@@ -13,11 +14,11 @@ export const NoteApp = () => {
         <NoteList />
       </View>
       <View style={[styles.box, styles.box3]}>
-        <AddNote />
+        <AddNote navigation={navigation} />
       </View>
     </View>
   );
-};
+}
 
 var { height } = Dimensions.get("window");
 
@@ -28,8 +29,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    paddingTop: 50,
-    paddingBottom: 100,
   },
   box: {
     height: box_height,
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
   },
   //footer
   box3: {
-    flex: 0.5,
+    flex: 2,
     backgroundColor: "#e3aa1a",
   },
   title: {

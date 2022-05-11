@@ -1,9 +1,20 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { useDispatch } from "react-redux";
 import { addNote } from "../reducers/noteSlice";
 
-export const AddNote = () => {
+import { FAB } from "react-native-paper";
+
+export const AddNote = ({ navigation }) => {
+  //console.log(navigation);
+
   const [text, setText] = useState();
   const dispatch = useDispatch();
 
@@ -17,26 +28,21 @@ export const AddNote = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        placeholder="Todo"
-        value={text}
-        onChangeText={setText}
-        style={styles.input}
-      />
-      <Button title="Add" onPress={handleSumbit} />
-    </View>
+    <FAB
+      style={styles.fab}
+      large
+      icon="plus"
+      onPress={() => navigation.navigate("Add")}
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    margin: 2,
-  },
-  input: {
-    backgroundColor: "ghostwhite",
-    marginBottom: 8,
-    padding: 8,
-    height: 40,
+  container: {},
+  fab: {
+    position: "absolute",
+    margin: 15,
+    right: 0,
+    bottom: 0,
   },
 });
