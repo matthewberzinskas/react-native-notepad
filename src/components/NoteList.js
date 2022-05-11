@@ -7,12 +7,15 @@ export function NoteList() {
   console.log(notes);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Note List</Text>
-      {notes.map((note, index) => (
-        <Text style={styles.noteText} key={note.id}>{`${index + 1}. ${
-          note.text
-        }`}</Text>
-      ))}
+      {notes.length > 0 ? (
+        notes.map((note, index) => (
+          <Text style={styles.noteText} key={note.id}>{`${index + 1}. ${
+            note.text
+          }`}</Text>
+        ))
+      ) : (
+        <Text>No notes to display.</Text>
+      )}
     </View>
   );
 }

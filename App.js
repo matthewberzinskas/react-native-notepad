@@ -14,7 +14,11 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: "React Native Notepad" }}
+          />
           <Stack.Screen name="Add" component={AddNoteScreen} />
         </Stack.Navigator>
       </NavigationContainer>

@@ -8,7 +8,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={[styles.box, styles.box1]}>
-        <Text style={styles.title}>NotePad App</Text>
+        <Text style={styles.title}>Your notes...</Text>
       </View>
       <View style={[styles.box, styles.box2]}>
         <NoteList />
